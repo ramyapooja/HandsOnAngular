@@ -1,0 +1,39 @@
+<div class="jumborton">
+    <div class="container">
+      <form [formGroup]="productForm" (ngSubmit)="Add()">
+        <div class="form-group">
+            <label>Product ID</label>
+            <input type="text" formControlName="pid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pid.errors }" />
+            <div *ngIf="submitted && f.pid.errors" class="invalid-feedback">
+                <div *ngIf="f.pid.errors.required">Product ID is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Product name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                <div *ngIf="f.price.errors.required">Product price is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="text" formControlName="stock" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+            <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+                <div *ngIf="f.stock.errors.required">Stock is required</div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">ADD</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">RESET</button>
+        </div>
+        
+      </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<p>admin works!</p>
+<h1 class="text-info">Welcome {{uname}}</h1>
+<div class="row">
+    <div><a [routerLink]="['/admin/addCategory']">Add Category</a></div>
+    <div><a [routerLink]="['/admin/add-removeBuyer']">Add/Remove Buyer</a></div>
+    <div><a [routerLink]="['/admin/add-removeSeller']">Add/Remove Seller</a></div>
+    
+</div>
+<button (click)="LogOut()">LogOut</button>
