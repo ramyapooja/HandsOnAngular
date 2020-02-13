@@ -1,0 +1,98 @@
+<div class="jumborton">
+    <div class="container">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+            <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                <div *ngIf="f.id.errors.required">ID is required</div>
+                <div *ngIf="f.id.errors.pattern">ID must be valid </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>NAME</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required"> Name is required</div>
+                <div *ngIf="f.name.errors.pattern">Name must be valid </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Join Date</label>
+            <input type="date" formControlName="joinDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.joinDate.errors }" />
+            <div *ngIf="submitted && f.joinDate.errors" class="invalid-feedback">
+                <div *ngIf="f.joinDate.errors.required">Join Date is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Designation</label>
+            <select formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
+                <option value=""></option>
+                <option value="manager">manager</option>
+                <option value="tester">Tester</option>
+                <option value="developer">developer</option>
+                <option value="teamlead">TeamLead</option>
+               
+            </select>
+            <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                <div *ngIf="f.designation.errors.required">Designation is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Mobile no</label>
+            <input type="text" value="+91" size="1" readonly="readonly" >
+            <input type="text" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">Mobile no is required</div>
+                <div *ngIf="f.mobile.errors.pattern">Enter valid mobile no </div>
+               
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+    
+     
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="pwd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
+                <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                    <div *ngIf="f.pwd.errors.required">Password is required</div>
+                    <div *ngIf="f.pwd.errors.pattern">Password must be valid</div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">SUBMIT</button>
+               
+            </div>
+
+</form>
+</div>
+<div>
+    <table border='1' align="center">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>JoinDate</th>
+            <th>Designation</th>
+            <th>Mobile No</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        <tr *ngFor="let li of list">
+            <td>{{li.id}}</td>
+            <td>{{li.name}}</td>
+            <td>{{li.joinDate}}</td>
+            <td>{{li.designation}}</td>
+            <td>{{li.mobile}}</td>
+            <td>{{li.email}}</td>
+            <td>{{li.pwd}}</td>
+        </tr>
+    </table>
+</div>
+</div>
